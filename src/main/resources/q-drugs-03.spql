@@ -1,0 +1,31 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dmed: <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/>
+PREFIX dgbank: <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/>
+PREFIX sider: <http://www4.wiwiss.fu-berlin.de/sider/resource/sider/>
+PREFIX dbpprop: <http://dbpedia.org/property/>
+
+SELECT ?dgn ?dg_act_ing ?dg_mtb ?dg_frm ?sd_eff
+WHERE {
+  SERVICE <http://www4.wiwiss.fu-berlin.de/dailymed/sparql> {
+    <uri>  dmed:fullName ?dgn ;
+          dmed:activeIngredient ?dgai ;
+          dmed:genericDrug ?gdg ;
+          owl:sameAs ?sa .
+    ?dgai rdfs:label ?dg_act_ing .
+  }
+  SERVICE <http://www4.wiwiss.fu-berlin.de/drugbank/sparql> {
+    ?gdg dgbank:chemicalFormula  ?dg_frm ;
+  }
+  OPTIONAL {
+    SERVICE <http://www4.wiwiss.fu-berlin.de/sider/sparql> {
+      ?sa sider:sideEffect ?se .
+      ?se sider:sideEffectName ?sd_eff .
+    }
+  }
+  OPTIONAL {
+    SERVICE <http://dbpedia.org/sparql> {
+      ?sa dbpprop:metabolism ?dg_mtb . 
+    }
+  }
+}

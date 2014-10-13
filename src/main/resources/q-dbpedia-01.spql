@@ -1,0 +1,4 @@
+SELECT * WHERE {
+ ?s ?p ?o
+ FILTER (?s = <http://dbpedia.org/resource/Fortaleza>)
+}

@@ -1,0 +1,17 @@
+prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix owl:  <http://www.w3.org/2002/07/owl#>
+prefix foaf: <http://xmlns.com/foaf/0.1/> 
+prefix dc:   <http://purl.org/dc/elements/1.1/> 
+
+select ?researcher_name ?pub_title where {
+ service <http://200.19.179.244/researchers/sparql> {
+   ?researcher rdf:type foaf:Person .
+   ?researcher foaf:name ?researcher_name .
+   ?researcher owl:sameAs ?dblp_researcher .
+ }
+ service <http://200.19.179.244/dblp/sparql> {
+   ?publication dc:creator ?dblp_researcher .
+   ?publication dc:title ?pub_title
+ }
+}

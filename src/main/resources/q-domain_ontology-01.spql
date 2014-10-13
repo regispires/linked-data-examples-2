@@ -1,0 +1,14 @@
+PREFIX medical: <http://lia.ufc.br/med>
+SELECT DISTINCT ?dgcf ?dgain ?sen ?dgmtb 
+WHERE {
+   ?dg medical:fullName ?dgn ;
+       medical:activeIngredient ?dgai ;
+       medical:sideEffect ?se ;
+       medical:chemicalFormula  ?dgcf .
+   ?dgai medical:label ?dgain .
+   ?se medical:sideEffectName ?sen .
+  OPTIONAL { 
+    ?dg medical:metabolism ?dgmtb . 
+  }
+  FILTER regex(?dgn, ?text, "i")
+}

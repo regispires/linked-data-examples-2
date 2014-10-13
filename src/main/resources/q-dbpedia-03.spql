@@ -1,0 +1,12 @@
+SELECT * WHERE {
+{
+  ?s ?p ?o
+  FILTER (?s = <http://dbpedia.org/resource/Fortaleza>)
+} UNION {
+  ?s ?p ?o
+  FILTER (?s = <http://dbpedia.org/resource/Teresina>)
+} UNION {
+  ?s ?p ?o
+  FILTER (?s = <http://dbpedia.org/resource/Linux>)
+}
+}

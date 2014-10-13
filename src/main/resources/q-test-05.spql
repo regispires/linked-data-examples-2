@@ -1,0 +1,12 @@
+
+SELECT  *
+  WHERE {
+    { ?publication <http://purl.org/dc/elements/1.1/creator> <http://dblp.l3s.de/d2r/resource/authors/Marco_A._Casanova> .
+      ?publication <http://purl.org/dc/elements/1.1/title> ?pub_title
+    }
+UNION
+    { ?publication <http://purl.org/dc/elements/1.1/creator> <http://dblp.l3s.de/d2r/resource/authors/V%C3%A2nia_Maria_Ponte_Vidal> .
+      ?publication <http://purl.org/dc/elements/1.1/title> ?pub_title
+    }
+
+}

@@ -1,0 +1,8 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?name
+FROM <http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf>
+WHERE {
+  ?person a foaf:Person ; foaf:name ?name .
+  FILTER(NOT EXISTS { ?person rdfs:seeAlso ?url })
+}

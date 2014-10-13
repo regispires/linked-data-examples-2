@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns="http://lia.ufc.br/~regispires/researchers.rdf#">
+
+<rdf:Description rdf:about="">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+	<dc:title>Researchers file</dc:title>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://lia.ufc.br/~regispires/researchers.rdf#puc_rio">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+	<foaf:name>Pontifícia Universidade Católica do Rio de Janeiro</foaf:name>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://lia.ufc.br/~regispires/researchers.rdf#ufc">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+	<foaf:name>Universidade Federal do Ceará</foaf:name>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://lia.ufc.br/~regispires/researchers.rdf#casanova">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+	<foaf:name>Marco A. Casanova</foaf:name>
+	<foaf:Organization rdf:resource="http://lia.ufc.br/~regispires/researchers.rdf#puc_rio"/>
+	<rdfs:sameAs rdf:resource="http://dblp.l3s.de/d2r/resource/Marco_A._Casanova"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://lia.ufc.br/~regispires/researchers.rdf#jose_antonio">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+	<foaf:name>José Antônio Fernandes de Macedo</foaf:name>
+	<foaf:Organization rdf:resource="http://lia.ufc.br/~regispires/researchers.rdf#ufc"/>
+	<rdfs:sameAs rdf:resource="http://dblp.l3s.de/d2r/resource/Jos%C3%A9_Ant%C3%B4nio_Fernandes_de_Mac%C3%AAdo"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://lia.ufc.br/~regispires/researchers.rdf#karin">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+	<foaf:name>Karin Breitman</foaf:name>
+	<foaf:Organization rdf:resource="http://lia.ufc.br/~regispires/researchers.rdf#puc_rio"/>
+	<rdfs:sameAs rdf:resource="http://dblp.l3s.de/d2r/resource/Karin_Koogan_Breitman"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="http://lia.ufc.br/~regispires/researchers.rdf#vania">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+	<foaf:name>Vânia Maria Ponte Vidal</foaf:name>
+	<foaf:Organization rdf:resource="http://lia.ufc.br/~regispires/researchers.rdf#ufc"/>
+	<rdfs:sameAs rdf:resource="http://dblp.l3s.de/d2r/resource/V%C3%A2nia_Maria_Ponte_Vidal"/>
+</rdf:Description>
+
+</rdf:RDF>

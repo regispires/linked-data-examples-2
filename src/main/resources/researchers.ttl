@@ -1,0 +1,41 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc:   <http://purl.org/dc/elements/1.1/> .
+@prefix :     <http://lia.ufc.br/~regispires/researchers.rdf#> .
+
+# The <> (the empty URI) means "this document".
+<>  a                  foaf:Document ;
+    dc:title           "Researchers file" .
+
+:puc_rio
+    a                  foaf:Organization ;
+    foaf:name          "Pontifícia Universidade Católica do Rio de Janeiro" .
+
+:ufc
+    a                  foaf:Organization ;
+    foaf:name          "Universidade Federal do Ceará" .
+
+:casanova
+    a                  foaf:Person ;
+    foaf:name          "Marco A. Casanova" ;
+    foaf:Organization  :puc_rio ;
+    rdfs:sameAs        <http://dblp.l3s.de/d2r/resource/Marco_A._Casanova> .
+
+:jose_antonio
+    a                  foaf:Person ;
+    foaf:name          "José Antônio Fernandes de Macedo" ;
+    foaf:Organization  :ufc ;
+    rdfs:sameAs        <http://dblp.l3s.de/d2r/resource/Jos%C3%A9_Ant%C3%B4nio_Fernandes_de_Mac%C3%AAdo> .
+
+:karin
+    a                  foaf:Person ;
+    foaf:name          "Karin Breitman" ;
+    foaf:Organization  :puc_rio ;
+    rdfs:sameAs        <http://dblp.l3s.de/d2r/resource/Karin_Koogan_Breitman> .
+
+:vania
+    a                  foaf:Person ;
+    foaf:name          "Vânia Maria Ponte Vidal" ;
+    foaf:Organization  :ufc ;
+    rdfs:sameAs        <http://dblp.l3s.de/d2r/resource/V%C3%A2nia_Maria_Ponte_Vidal> .

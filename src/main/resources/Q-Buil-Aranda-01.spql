@@ -1,0 +1,10 @@
+PREFIX pubmed: <http://bio2rdf.org/pubmed_resource:>
+PREFIX geneid: <http://bio2rdf.org/geneid_resource:>
+SELECT ?pubmed ?gene1 ?mesh ?descriptor WHERE
+{ 
+  SERVICE <http://127.0.0.1:2020/pubmed/query> {
+  ?gene1 geneid:pubmed_xref ?pubmed .}.
+  SERVICE <http://pubmed.bio2rdf.org/sparql> {
+    ?pubmed pubmed:meshref ?mesh .
+    ?mesh pubmed:descriptor ?descriptor .}
+}

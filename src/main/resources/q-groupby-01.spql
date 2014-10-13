@@ -1,0 +1,8 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX roads: <http://transport.data.gov.uk/0/ontology/roads#>
+SELECT ?cat_name (COUNT(DISTINCT ?thing) AS ?roads)
+WHERE {
+   ?thing  a roads:Road ; roads:category ?cat .
+   ?cat skos:prefLabel ?cat_name
+}
+GROUP BY ?cat_name

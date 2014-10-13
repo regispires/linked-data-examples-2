@@ -1,0 +1,20 @@
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+
+SELECT  * WHERE { 
+  { dbpedia:Teresina dbpedia-owl:country dbpedia:Brazil .
+    dbpedia:Teresina dbpedia-owl:populationTotal ?population
+  }
+  UNION
+  { dbpedia:Fortaleza dbpedia-owl:country dbpedia:Brazil .
+    dbpedia:Fortaleza dbpedia-owl:populationTotal ?population
+  }
+  UNION 
+  { dbpedia:Recife dbpedia-owl:country dbpedia:Brazil .
+    dbpedia:Recife dbpedia-owl:populationTotal ?population
+  } 
+  UNION 
+  { dbpedia:Rio_de_Janeiro dbpedia-owl:country dbpedia:Brazil .
+    dbpedia:Rio_de_Janeiro dbpedia-owl:populationTotal ?population
+  } 
+}

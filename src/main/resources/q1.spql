@@ -1,0 +1,29 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dailymed: <http://www4.wiwiss.fu-berlin.de/dailymed/resource/dailymed/>
+PREFIX drugbank: <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugbank/>
+PREFIX sider: <http://www4.wiwiss.fu-berlin.de/sider/resource/sider/>
+PREFIX dbpprop: <http://dbpedia.org/property/>
+SELECT DISTINCT ?dgain ?dgcf ?dgmtb ?sen 
+WHERE {
+  SERVICE <http://dailymed.dinolandia.com.br/dailymed/query> {
+    ?dg dailymed:fullName ?dgn ;
+        dailymed:activeIngredient ?dgai ;
+        dailymed:genericDrug ?gdg ;
+        owl:sameAs ?sa .
+    ?dgai rdfs:label ?dgain .
+    FILTER regex(?dgn, "diazepam", "i")
+  }
+  SERVICE <http://drugbank.dinolandia.com.br/drugbank/query> {
+    ?gdg drugbank:chemicalFormula  ?dgcf ;
+  }
+  SERVICE <http://sider.dinolandia.com.br/sider/query> {
+    ?sa sider:sideEffect ?se .
+    ?se sider:sideEffectName ?sen .
+  }
+  OPTIONAL { 
+    SERVICE <http://dbpedia.org/sparql> {
+      ?sa dbpprop:metabolism ?dgmtb . 
+    }
+  }
+}

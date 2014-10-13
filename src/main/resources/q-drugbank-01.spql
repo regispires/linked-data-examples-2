@@ -1,0 +1,4 @@
+SELECT * WHERE {
+ ?s ?p ?o
+ FILTER (?s = <http://www4.wiwiss.fu-berlin.de/drugbank/resource/drugs/DB06689>)
+}

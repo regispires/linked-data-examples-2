@@ -1,0 +1,8 @@
+PREFIX  dc:   <http://purl.org/dc/elements/1.1/>
+
+SELECT  *
+WHERE
+{ ?publication dc:creator ?dblp_researcher .
+        ?publication dc:title ?pub_title
+        FILTER ( ?dblp_researcher = <http://dblp.l3s.de/d2r/resource/authors/Marco_A._Casanova> )
+}

@@ -1,0 +1,9 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?s ?p ?o WHERE {
+   ?s ?p ?o .
+   ?x ?y ?z
+   FILTER (?s = dbpedia:Fortaleza && ?p = rdf:type && ?o = owl:Thing && ?x = owl:teste && ?y = owl:teste && ?z = owl:teste)
+ }

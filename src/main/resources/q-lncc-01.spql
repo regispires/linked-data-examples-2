@@ -1,0 +1,44 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX db: <file:///resource/>
+PREFIX spl: <http://localhost:2020/spl/resource/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX map: <file:///home/daniele/D2RQ/d2r-server-0.7/peld_plankton.n3#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+Select distinct ?name ?name_syn ?name_pred ?reg ?dt 
+Where {
+{
+	?s rdf:type spl:plankton.
+	?s spl:plankton_collect_local ?r.
+	?s spl:plankton_collect_date ?dt.  
+	?r rdf:type spl:region.
+	?r spl:region_name_reg ?reg.
+	?pa rdf:type spl:plankton_analysis.
+	?pa spl:plankton_analysis_id_collect ?s.
+	?tx rdf:type spl:taxon.
+	?tx spl:taxon_popular_name ?name.
+	?pa spl:plankton_analysis_id_taxon ?tx.
+	?tc rdf:type spl:trophic_chain.
+	?tc spl:trophic_chain_id_predator_taxon ?pred.
+	?pred spl:taxon_popular_name ?name_pred.
+} Union {
+	?s rdf:type spl:plankton.
+	?s spl:plankton_collect_local ?r.
+	?s spl:plankton_collect_date ?dt.  
+	?r rdf:type spl:region.
+	?r spl:region_name_reg ?reg.
+	?pa rdf:type spl:plankton_analysis.
+	?pa spl:plankton_analysis_id_collect ?s.
+	?tx rdf:type spl:taxon.
+	?tx spl:taxon_popular_name ?name.
+	?pa spl:plankton_analysis_id_taxon ?tx.
+	?tc rdf:type spl:trophic_chain.
+	?tc spl:trophic_chain_id_predator_taxon ?pred.
+	?pred spl:taxon_popular_name ?name_pred.
+	?syn spl:taxon_id_synon_taxon ?tx.
+	?syn spl:taxon_popular_name ?name_syn.
+}
+	Filter regex (?reg, "Paqueta").
+	Filter (?dt =2004 ).
+}

@@ -1,0 +1,24 @@
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+
+SELECT  * WHERE { 
+  { ?city dbpedia-owl:country ?country .
+    ?city dbpedia-owl:populationTotal ?population
+    FILTER ( ?city = dbpedia:Teresina && ?country = dbpedia:Brazil )
+  }
+  UNION
+  { ?city dbpedia-owl:country ?country .
+    ?city dbpedia-owl:populationTotal ?population
+    FILTER ( ?city = dbpedia:Fortaleza && ?country = dbpedia:Brazil )
+  }
+  UNION 
+  { ?city dbpedia-owl:country ?country .
+    ?city dbpedia-owl:populationTotal ?population
+    FILTER ( ?city = dbpedia:Recife && ?country = dbpedia:Brazil )
+  } 
+  UNION 
+  { ?city dbpedia-owl:country ?country .
+    ?city dbpedia-owl:populationTotal ?population
+    FILTER ( ?city = dbpedia:Rio_de_Janeiro && ?country = dbpedia:Brazil )
+  } 
+}
